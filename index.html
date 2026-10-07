@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donde Mi Corazón Te Busca Incluso Cuando No Estás</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% 10%, rgba(104,48,145,.20), transparent 32%),
+        radial-gradient(circle at 10% 85%, rgba(70,35,100,.13), transparent 30%),
+        linear-gradient(180deg,#030304 0%,#08070a 48%,#020203 100%);
+    color:#f5e7b0;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Reflejos de agua */
+body::before{
+    content:"";
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:32vh;
+    pointer-events:none;
+    opacity:.18;
+    background:
+        repeating-linear-gradient(
+            175deg,
+            transparent 0px,
+            transparent 12px,
+            rgba(210,177,82,.10) 13px,
+            transparent 15px,
+            transparent 28px
+        );
+    filter:blur(1px);
+    transform:perspective(500px) rotateX(58deg);
+    transform-origin:bottom;
+}
+
+/* Pequeñas huellitas */
+.paw{
+    position:fixed;
+    color:rgba(211,175,77,.16);
+    font-size:24px;
+    pointer-events:none;
+    z-index:0;
+    animation:floatPaw 7s ease-in-out infinite;
+}
+
+.paw:nth-child(1){left:7%;top:18%;animation-delay:0s;}
+.paw:nth-child(2){right:9%;top:31%;animation-delay:2s;}
+.paw:nth-child(3){left:12%;bottom:18%;animation-delay:4s;}
+.paw:nth-child(4){right:14%;bottom:28%;animation-delay:1s;}
+
+@keyframes floatPaw{
+    0%,100%{transform:translateY(0) rotate(-10deg);opacity:.10;}
+    50%{transform:translateY(-14px) rotate(8deg);opacity:.24;}
+}
+
+.container{
+    width:min(900px,92%);
+    margin:0 auto;
+    padding:35px 0 55px;
+    position:relative;
+    z-index:2;
+}
+
+/* Encabezado */
+.top{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.moon-cat{
+    font-size:38px;
+    margin-bottom:10px;
+    color:#d7b75a;
+    text-shadow:
+        0 0 8px rgba(215,183,90,.45),
+        0 0 22px rgba(145,69,190,.30);
+}
+
+.date{
+    font-size:11px;
+    letter-spacing:4px;
+    color:#9f87b4;
+    text-transform:uppercase;
+}
+
+/* Marco de fotografía */
+.photo-frame{
+    width:100%;
+    max-width:680px;
+    height:390px;
+    margin:0 auto 34px;
+    padding:10px;
+    border:1px solid rgba(213,177,77,.55);
+    background:
+        linear-gradient(145deg,
+        rgba(255,255,255,.035),
+        rgba(212,174,71,.045));
+    box-shadow:
+        0 0 0 1px rgba(126,72,151,.18),
+        0 0 35px rgba(111,51,139,.22),
+        inset 0 0 30px rgba(210,177,82,.05);
+    border-radius:22px;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.photo-frame::before{
+    content:"🐾";
+    position:absolute;
+    top:13px;
+    left:17px;
+    font-size:20px;
+    z-index:3;
+    opacity:.65;
+}
+
+.photo-frame::after{
+    content:"Toca dos veces la imagen para verla";
+    position:absolute;
+    bottom:12px;
+    left:0;
+    right:0;
+    text-align:center;
+    font-size:9px;
+    letter-spacing:2px;
+    color:rgba(245,226,161,.58);
+    text-transform:uppercase;
+    pointer-events:none;
+    text-shadow:0 1px 8px #000;
+}
+
+.photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:15px;
+    display:block;
+    background:
+        radial-gradient(circle,rgba(132,67,160,.13),transparent 55%),
+        #08070a;
+}
+
+/* Carta */
+.letter{
+    position:relative;
+    background:
+        linear-gradient(145deg,
+        rgba(255,255,255,.035),
+        rgba(126,70,151,.035));
+    border:1px solid rgba(210,174,72,.32);
+    border-radius:26px;
+    padding:42px clamp(22px,6vw,62px);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.55),
+        0 0 35px rgba(100,47,130,.12),
+        inset 0 0 45px rgba(213,177,77,.025);
+    backdrop-filter:blur(7px);
+}
+
+.letter::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:1px solid rgba(213,177,77,.08);
+    border-radius:20px;
+    pointer-events:none;
+}
+
+h1{
+    position:relative;
+    text-align:center;
+    font-family:'Cinzel',serif;
+    font-size:clamp(21px,4.6vw,34px);
+    line-height:1.45;
+    letter-spacing:1px;
+    color:#e8c967;
+    text-shadow:
+        0 0 8px rgba(222,187,82,.32),
+        0 0 25px rgba(112,48,143,.22);
+    margin-bottom:31px;
+}
+
+.letter p{
+    position:relative;
+    font-size:15px;
+    line-height:2;
+    font-weight:400;
+    color:#eadfc1;
+    margin-bottom:20px;
+    text-shadow:0 2px 9px rgba(0,0,0,.8);
+}
+
+.letter p:first-of-type{
+    color:#e4c66f;
+    font-family:'Cinzel',serif;
+    font-size:17px;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.letter strong{
+    color:#e8c96e;
+    font-weight:600;
+}
+
+/* Separadores */
+.divider{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:30px 0;
+    color:#aa7cc1;
+    opacity:.75;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    height:1px;
+    flex:1;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(212,176,78,.45),
+        transparent
+    );
+}
+
+.divider span{
+    font-size:18px;
+}
+
+/* Firma */
+.signature{
+    margin-top:30px;
+    text-align:center;
+}
+
+.signature p{
+    margin-bottom:7px;
+}
+
+.signature p:nth-child(2),
+.signature p:nth-child(4){
+    color:#d5b763;
+    font-family:'Cinzel',serif;
+    font-size:17px;
+}
+
+/* Declaración final */
+.final-love{
+    margin:48px auto 12px;
+    padding:27px 20px;
+    max-width:720px;
+    text-align:center;
+    border:1px solid rgba(170,74,235,.30);
+    border-radius:20px;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(117,42,166,.14),
+            transparent 70%
+        );
+    box-shadow:
+        0 0 25px rgba(134,48,185,.15),
+        inset 0 0 25px rgba(142,61,190,.06);
+}
+
+.final-love .neon{
+    color:#d68cff;
+    font-family:'Cinzel',serif;
+    font-size:clamp(16px,4vw,24px);
+    line-height:1.7;
+    text-shadow:
+        0 0 4px #fff,
+        0 0 9px #d56cff,
+        0 0 18px #b32eff,
+        0 0 34px #8c22d1;
+}
+
+.final-love .small-neon{
+    display:block;
+    margin-top:15px;
+    color:#c878ff;
+    font-size:clamp(14px,3.5vw,19px);
+    line-height:1.7;
+    text-shadow:
+        0 0 5px #d36aff,
+        0 0 15px #a52be0,
+        0 0 28px #7c19ad;
+}
+
+/* Botón del poema */
+.poem-area{
+    text-align:center;
+    margin-top:38px;
+}
+
+.poem-label{
+    color:#a996b3;
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:14px;
+    text-transform:uppercase;
+}
+
+.poem-button{
+    display:inline-block;
+    text-decoration:none;
+    color:#f3dc91;
+    font-family:'Cinzel',serif;
+    font-size:14px;
+    letter-spacing:1px;
+    padding:15px 27px;
+    border-radius:40px;
+    border:1px solid rgba(215,180,79,.62);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(177,126,35,.13),
+            rgba(103,43,135,.15)
+        );
+    box-shadow:
+        0 0 15px rgba(210,175,74,.14),
+        inset 0 0 15px rgba(152,75,189,.08);
+    transition:.3s ease;
+}
+
+.poem-button:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 0 24px rgba(211,175,76,.30),
+        0 0 35px rgba(134,51,179,.18);
+    color:#fff0b7;
+}
+
+/* Pie */
+.footer{
+    text-align:center;
+    margin-top:35px;
+    color:rgba(212,188,124,.38);
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.footer span{
+    display:block;
+    margin-top:8px;
+    color:rgba(157,101,184,.38);
+}
+
+/* Modal pantalla completa */
+.image-modal{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(56,23,72,.55),
+            rgba(0,0,0,.97) 72%
+        );
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:18px;
+    backdrop-filter:blur(10px);
+}
+
+.image-modal.active{
+    display:flex;
+}
+
+.modal-image{
+    max-width:96vw;
+    max-height:88vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:14px;
+    border:1px solid rgba(221,184,77,.60);
+    box-shadow:
+        0 0 25px rgba(214,177,74,.18),
+        0 0 55px rgba(130,49,171,.22);
+}
+
+.back-button{
+    position:absolute;
+    top:20px;
+    left:20px;
+    z-index:10001;
+    padding:12px 18px;
+    border:1px solid rgba(215,179,76,.65);
+    border-radius:30px;
+    background:rgba(8,7,10,.82);
+    color:#f2d98d;
+    font-family:'Montserrat',sans-serif;
+    font-size:13px;
+    cursor:pointer;
+    box-shadow:0 0 18px rgba(200,160,70,.15);
+}
+
+.back-button:hover{
+    background:rgba(55,27,67,.9);
+}
+
+/* Responsive */
+@media(max-width:600px){
+
+    .container{
+        width:94%;
+        padding-top:24px;
+    }
+
+    .photo-frame{
+        height:300px;
+        border-radius:18px;
+    }
+
+    .letter{
+        padding:32px 20px;
+        border-radius:21px;
+    }
+
+    .letter p{
+        font-size:14px;
+        line-height:1.9;
+    }
+
+    h1{
+        font-size:21px;
+    }
+
+    .final-love{
+        padding:24px 15px;
+    }
+
+    .modal-image{
+        max-width:98vw;
+        max-height:82vh;
+    }
+
+    .back-button{
+        top:13px;
+        left:13px;
+        font-size:12px;
+    }
+}
+
+@media(max-width:380px){
+    .photo-frame{
+        height:250px;
+    }
+
+    .letter{
+        padding:28px 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="paw">🐾</div>
+<div class="paw">🐾</div>
+<div class="paw">🐾</div>
+<div class="paw">🐾</div>
+
+<main class="container">
+
+    <header class="top">
+        <div class="moon-cat">🐈‍⬛ ✦</div>
+        <div class="date">Una carta dejada para ti antes de que despiertes</div>
+    </header>
+
+    <!-- =========================================================
+         IMAGEN DE LA CARTA
+         CAMBIA SOLAMENTE EL NOMBRE DEL ARCHIVO ENTRE LAS COMILLAS
+         ========================================================= -->
+    <div class="photo-frame"
+         id="photoFrame"
+         ondblclick="openImage()">
+
+        <img
+            id="letterPhoto"
+            src="IMG_20261006_225154.png"
+            alt="Una fotografía especial para Mi Princesa Valeria">
+
+    </div>
+
+
+    <article class="letter">
+
+        <h1>✦ DONDE MI CORAZÓN TE BUSCA INCLUSO CUANDO NO ESTÁS ✦</h1>
+
+        <p><strong>Mi Dulce Refugio de Mi Corazón Inquieto,</strong></p>
+
+        <p>Buenos días, mi amor. ❤️</p>
+
+        <p>Esta es mi séptima carta de octubre y sigo aquí, extrañándote muchísimo, con esas ganas enormes de volver a estar a tu lado. Tal vez sea egoísta decirlo, pero ojalá estos días pasen rapidito, porque mientras algunos desean que las vacaciones duren para siempre, yo solo pienso en volver a verte. Por ahora, las clases son ese pequeño lugar donde puedo encontrarte, abrazarte y sentir que vuelvo a estar bien.</p>
+
+        <p>No sé cómo explicártelo, amor, pero te necesito muchísimo a mi lado. Cuando pasa demasiado tiempo sin ti, mi corazón se siente extraño y mi mente empieza a llevarme a recuerdos que creía dormidos. Hoy, por algo que me dijo mi mamá, recordé una etapa muy difícil de mi pasado, una en la que mi abuelo fue quien me sostuvo cuando yo más frágil estaba.</p>
+
+        <p>Y entonces pensé en ti.</p>
+
+        <p>Porque desde que llegaste entendí que también necesitaba a alguien especial en quien poder apoyarme, alguien ante quien pudiera sentirme querido, comprendido y acompañado. Y no sabes cuánto te agradezco haberte convertido en ese lugar tan bonito para mí.</p>
+
+        <p>Quizás por eso muchas veces me cuesta demostrarte todo lo que siento cuando estoy frente a ti. A veces las palabras se me quedan atrapadas y el valor me llega después. Por eso escribo, por eso te busco en el teléfono, por eso dejo pequeños pedacitos de mi corazón en cartas como esta.</p>
+
+        <p>Perdóname si a veces no sé demostrarte todo lo que te amo de la manera que quisiera.</p>
+
+        <p>Pero nunca dudes de algo, mi vida:</p>
+
+        <p><strong>te amo muchísimo.</strong></p>
+
+        <p>Y aunque hoy no pueda estar abrazándote, quiero que esta carta esté contigo desde el momento en que abras los ojos, como si hubiera dejado un pequeño abrazo mío esperándote para acompañarte durante todo tu día.</p>
+
+        <p>Ojalá pronto pueda volver a mirarte a los ojos y decirte todo esto sin esconderme detrás de una pantalla.</p>
+
+        <p>Hasta entonces, quédate con esto:</p>
+
+        <p><strong>mi corazón sigue aquí, buscándote, extrañándote y eligiéndote una vez más.</strong></p>
+
+        <div class="divider">
+            <span>🐾</span>
+        </div>
+
+        <div class="signature">
+
+            <p>Con todo mi amor,</p>
+
+            <p><strong>JUAN KALETH MENDOZA PRIMERA</strong></p>
+
+            <p>El que te ama incluso en la distancia.</p>
+
+            <p><strong>VALERIA PETRO VILLAZÓN</strong></p>
+
+            <p>La persona que mi corazón sigue buscando. ❤️</p>
+
+        </div>
+
+    </article>
+
+
+    <!-- DECLARACIÓN FINAL -->
+    <section class="final-love">
+
+        <div class="neon">
+            Je t'aime, Valeria Petro Villazón, plus profondément que les mots ne pourront jamais le dire.
+        </div>
+
+        <span class="small-neon">
+            Et que notre petit Noah veille sur nous depuis le ciel, qu'il marche avec nous dans chaque endroit où nous allons, et qu'il reste pour toujours dans nos cœurs. 🐾💜
+        </span>
+
+        <div class="neon" style="margin-top:18px;">
+            TE AMO VALERIA PETRO VILLAZÓN ❤️
+        </div>
+
+    </section>
+
+
+    <!-- BOTÓN DEL POEMA -->
+    <section class="poem-area">
+
+        <div class="poem-label">
+            Un pequeño pedacito de amor te espera aquí
+        </div>
+
+        <!-- PEGA AQUÍ EL ENLACE DEL POEMA DE ESTE DÍA -->
+        <a
+            class="poem-button"
+            href="https://j8753741-eng.github.io/Mi-rcoles-7-de-octubre-del-2026---poema/"
+            target="_blank"
+            rel="noopener noreferrer">
+            🐾 Abrir el poema de este día 🐾
+        </a>
+
+    </section>
+
+
+    <footer class="footer">
+        Hecho con amor, para que encuentres mis palabras cuando abras los ojos.
+        <span>🐈‍⬛ ✦ Cada huellita lleva hasta ti ✦ 🐾</span>
+    </footer>
+
+</main>
+
+
+<!-- MODAL DE IMAGEN -->
+<div
+    class="image-modal"
+    id="imageModal"
+    onclick="closeImage(event)">
+
+    <button
+        class="back-button"
+        onclick="closeImageButton(event)">
+        ← Volver a la carta
+    </button>
+
+    <img
+        class="modal-image"
+        id="modalImage"
+        src="IMG_20261006_225154.png"
+        alt="Imagen ampliada de la carta">
+
+</div>
+
+
+<script>
+
+const photo = document.getElementById("letterPhoto");
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+
+
+function openImage(){
+
+    modalImage.src = photo.src;
+    modal.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeImageButton(event){
+
+    event.stopPropagation();
+    closeImage();
+}
+
+
+function closeImage(event){
+
+    if(event && event.target !== modal){
+        return;
+    }
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+
+
+document.addEventListener("keydown", function(event){
+
+    if(event.key === "Escape"){
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+    }
+
+});
+
+
+/* También permite doble toque en celulares */
+let lastTap = 0;
+
+photo.addEventListener("touchend", function(event){
+
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTap;
+
+    if(tapLength < 350 && tapLength > 0){
+        event.preventDefault();
+        openImage();
+    }
+
+    lastTap = currentTime;
+
+});
+
+
+/* Evita que una imagen inexistente rompa el diseño */
+photo.addEventListener("error", function(){
+
+    this.style.opacity = "0.15";
+
+});
+
+</script>
+
+</body>
+  </html>
